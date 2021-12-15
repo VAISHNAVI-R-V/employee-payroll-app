@@ -25,4 +25,9 @@ public class EmployeePayrollController {
     public String addEmployee(@Valid @RequestBody EmployeePayrollDto employeePayrollDto) {
         return employeePayrollService.addEmployee(employeePayrollDto);
     }
+
+    @PutMapping(value = "/update/{id}")
+    public String updateEmployee(@PathVariable(value = "id") int id, @Valid @RequestBody EmployeePayrollDto employeePayrollDto) {
+        return employeePayrollService.updateEmployee(id, employeePayrollDto);
+    }
 }
