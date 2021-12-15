@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class EmployeePayrollServiceTest {
@@ -53,6 +53,7 @@ public class EmployeePayrollServiceTest {
         employeeResponseDto2.setDepartment("It");
         employeeResponseList.add(employeeResponseDto2);
 
+
         when(employeePayrollRepository.findAll()).thenReturn(employeeList);
         when(modelMapper.map(employeeList.get(0), EmployeePayrollDto.class)).thenReturn(employeeResponseDto);
         when(modelMapper.map(employeeList.get(1), EmployeePayrollDto.class)).thenReturn(employeeResponseDto2);
@@ -60,4 +61,25 @@ public class EmployeePayrollServiceTest {
         assertEquals(2, actualListOfAtm.size());
         assertEquals(employeeResponseList, actualListOfAtm);
     }
+    @Test
+    void whenAddAtmCalled_shouldAddAtmAndGenerateSuccessMessage() {
+
+        EmployeePayrollEntity employeePayrollEntity = new EmployeePayrollEntity();
+        employeePayrollEntity.setEmployeeId(1);
+        employeePayrollEntity.setName("Roopa");
+        employeePayrollEntity.setGender("Female");
+        employeePayrollEntity.setDepartment("It");
+
+        EmployeePayrollDto employeeDto = new EmployeePayrollDto();
+        employeeDto.setName("Shakti");
+        employeeDto.setGender("Female");
+        employeeDto.setDepartment("It");
+
+        when(modelMapper.map(employeeDto, EmployeePayrollEntity.class)).thenReturn(employeePayrollEntity);
+        String  actualStringMessage = employeePayrollService.addEmployee(employeeDto);
+        assertEquals("Employee Added Successfully!", actualStringMessage);
+        verify(employeePayrollRepository,times(1)).save(employeePayrollEntity);
+
+    }
 }
+
