@@ -27,7 +27,13 @@ public class EmployeePayrollController {
     }
 
     @PutMapping(value = "/update/{id}")
-    public String updateEmployee(@PathVariable(value = "id") int id, @Valid @RequestBody EmployeePayrollDto employeePayrollDto) {
+    public String updateEmployee(@PathVariable(value = "id") int id,
+                                 @Valid @RequestBody EmployeePayrollDto employeePayrollDto) {
         return employeePayrollService.updateEmployee(id, employeePayrollDto);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable int id) {
+        return employeePayrollService.deleteEmployee(id);
     }
 }

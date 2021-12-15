@@ -55,4 +55,10 @@ public class EmployeePayrollService {
                             "Invalid Employee Id -> " + id));
             return employeePayrollEntity;
     }
+
+    public String deleteEmployee(int id) {
+        EmployeePayrollEntity employeePayrollEntity = getEmployeeById(id);
+        employeeRepository.delete(employeePayrollEntity);
+        return "Employee Deleted Successfully!!";
+    }
 }
