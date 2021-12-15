@@ -73,4 +73,32 @@ public class EmployeePayrollControllerTest {
         String actualResponseString = employeePayrollController.addEmployee(employeeDto);
         assertEquals(successString, actualResponseString);
     }
+
+    @Test
+    void givenEmployeeDto_whenCalledUpdateEmployeeMethod_shouldReturnSuccessMessage() {
+        String successString = "Employee Update Successfully";
+        int id = 1;
+        EmployeePayrollDto employeeDto = new EmployeePayrollDto();
+        employeeDto.setName("veer");
+        employeeDto.setGender("M");
+        employeeDto.setDepartment("It");
+        employeeDto.setSalary("20000");
+        employeeDto.setStartDate(new Date());
+        employeeDto.setNotes("It department joining");
+        employeeDto.setImagePath("h.jpg");
+        when(employeeService.updateEmployee(id ,employeeDto)).thenReturn(successString);
+        String actualResponseString = employeePayrollController.updateEmployee(1,employeeDto);
+        assertEquals(successString, actualResponseString);
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
