@@ -16,9 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CustomGlobalExceptionalHandler {
     @ControllerAdvice
-    public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler {
+    public class CustomGlobalExceptionalHandler extends ResponseEntityExceptionHandler {
 
         /**
          * Purpose : To handle Method Argument Not Valid.
@@ -77,4 +76,3 @@ public class CustomGlobalExceptionalHandler {
             return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.NOT_FOUND);
         }
     }
-}
