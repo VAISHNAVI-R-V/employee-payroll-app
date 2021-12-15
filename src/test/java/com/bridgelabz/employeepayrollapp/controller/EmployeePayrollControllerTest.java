@@ -86,19 +86,19 @@ public class EmployeePayrollControllerTest {
         employeeDto.setStartDate(new Date());
         employeeDto.setNotes("It department joining");
         employeeDto.setImagePath("h.jpg");
-        when(employeeService.updateEmployee(id ,employeeDto)).thenReturn(successString);
-        String actualResponseString = employeePayrollController.updateEmployee(1,employeeDto);
+        when(employeeService.updateEmployee(id, employeeDto)).thenReturn(successString);
+        String actualResponseString = employeePayrollController.updateEmployee(1, employeeDto);
         assertEquals(successString, actualResponseString);
     }
 
-
-
-
-
-
-
-
-
+    @Test
+    void givenId_whenCalledDeleteEmployeeMethod_shouldReturnSuccessMessage() {
+        String successString = "Employee Delete Successfully";
+        int id = 1;
+        when(employeeService.deleteEmployee(id)).thenReturn(successString);
+        String actualResponseString = employeePayrollController.deleteEmployee(1);
+        assertEquals(successString, actualResponseString);
+    }
 
 
 }
