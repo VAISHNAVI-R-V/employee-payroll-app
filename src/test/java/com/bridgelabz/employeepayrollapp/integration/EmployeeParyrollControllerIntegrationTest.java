@@ -31,7 +31,8 @@ public class EmployeeParyrollControllerIntegrationTest {
     @Test
     void getAllEmployeeTest() throws Exception {
         when(employeePayrollService.employeesList()).thenReturn(new ArrayList<>());
-        mockMvc.perform(MockMvcRequestBuilders.get("/employee/employees-list")).andExpect(status().isOk());
+        mockMvc.perform(MockMvcRequestBuilders.get("/employee/employees-list"))
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -71,5 +72,4 @@ public class EmployeeParyrollControllerIntegrationTest {
                         "\"imagePath\":\"n.jpg\"}").contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk());
     }
-
 }
