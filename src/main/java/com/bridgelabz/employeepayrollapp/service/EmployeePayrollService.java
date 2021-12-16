@@ -31,12 +31,6 @@ public class EmployeePayrollService {
         return "Employee Added Successfully!";
     }
 
-//    public String  updateEmployee(int id, EmployeeDto employeeDTO) {
-//        EmployeeEntity employeeEntity = getEmployeeById(id);
-//        modelMapper.map(employeeDTO, employeeEntity);
-//        employeeRepository.save(employeeEntity);
-//        return "Employee Updated Successfully";
-//    }
     public String updateEmployee(int id, EmployeePayrollDto employeePayrollDto) {
         EmployeePayrollEntity employeePayrollEntity = getEmployeeById(id);
         modelMapper.map(employeePayrollDto, employeePayrollEntity);

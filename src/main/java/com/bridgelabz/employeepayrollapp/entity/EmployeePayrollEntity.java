@@ -13,7 +13,7 @@ public class EmployeePayrollEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employeeId;
     private String name;
-    private int salary;
+    private String salary;
     private String gender;
     private Date startDate;
     private String department;
