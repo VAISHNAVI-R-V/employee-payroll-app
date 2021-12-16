@@ -19,9 +19,9 @@ public class EmployeePayRollBuilderTest {
     private ModelMapper modelMapper;
 
     @Test
-    void name() {
+    void givenEmployeeDto_whenNeedToConvertToEmployeeEntityUsingModelMapper_shouldReturnEmployeeEntity() {
         EmployeePayrollDto employeeDto = new EmployeePayrollDto();
-        employeeDto.setName("Damini");
+        employeeDto.setName("Shikhaa");
         employeeDto.setGender("Female");
         employeeDto.setSalary("35000");
         employeeDto.setDepartment("It");
@@ -32,6 +32,5 @@ public class EmployeePayRollBuilderTest {
         EmployeePayrollEntity employeeEntity = new EmployeePayrollEntity();
         employeeEntity = employeePayRollBuilder.buildEmployeeEntity(employeeDto, employeeEntity);
         assertEquals(employeeDto.getName(), employeeEntity.getName());
-
     }
 }
