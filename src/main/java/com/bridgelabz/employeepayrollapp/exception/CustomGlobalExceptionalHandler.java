@@ -16,6 +16,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Purpose : To implement Employee Custom Global Exceptional Handler for Employee Payroll AppApplication.
+ *
+ * @author : VAISHANAVI R. VISHWAKARMA.
+ * @since : 16-12-2021
+ */
     @ControllerAdvice
     public class CustomGlobalExceptionalHandler extends ResponseEntityExceptionHandler {
 
@@ -64,7 +70,7 @@ import java.util.stream.Collectors;
         /**
          * Purpose : To handle method level exception
          *
-         * @param e : e used for AtmCustom Exception
+         * @param e : e used for Employee Custom Exception
          * @return : response entity of object type and status
          */
         @ExceptionHandler

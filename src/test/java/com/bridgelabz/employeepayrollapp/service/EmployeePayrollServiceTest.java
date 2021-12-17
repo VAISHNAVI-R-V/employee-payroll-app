@@ -24,6 +24,12 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+/**
+ * Purpose : To implement Test cases of Employee Payroll Service in Employee Payroll AppApplication.
+ *
+ * @author : VAISHANAVI R. VISHWAKARMA.
+ * @since : 16-12-2021
+ */
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 //@RunWith(MockitoJUnitRunner.Silent.class)
@@ -75,7 +81,7 @@ public class EmployeePayrollServiceTest {
     }
 
     @Test
-    void whenAddAtmCalled_shouldAddAtmAndGenerateSuccessMessage() {
+    void whenAddEmployeeAtCalled_shouldAddAtmAndGenerateSuccessMessage() {
 
         EmployeePayrollEntity employeePayrollEntity = new EmployeePayrollEntity();
         employeePayrollEntity.setEmployeeId(1);

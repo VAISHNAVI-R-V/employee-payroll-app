@@ -8,6 +8,12 @@ import javax.validation.constraints.Pattern;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Purpose : To implement Employee Payroll Dto for Employee Payroll AppApplication.
+ *
+ * @author : VAISHANAVI R. VISHWAKARMA.
+ * @since : 16-12-2021
+ */
 @Data
 public class EmployeePayrollDto {
     @NotNull
@@ -40,10 +46,20 @@ public class EmployeePayrollDto {
     @NotNull
     private String imagePath;
 
+    /**
+     * @purpose : to create list of departments.
+     *
+     * @return : department data.
+     */
     public List<String> getDepartment() {
         return department;
     }
 
+    /**
+     * @purpose : to set departments for employees.
+     *
+     * @param department : department is used to add multiple list of department data.
+     */
     public void setDepartment(List<String> department) {
         this.department = department;
     }
