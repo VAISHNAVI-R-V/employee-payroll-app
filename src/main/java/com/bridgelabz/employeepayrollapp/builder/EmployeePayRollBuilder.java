@@ -3,7 +3,6 @@ package com.bridgelabz.employeepayrollapp.builder;
 import com.bridgelabz.employeepayrollapp.dto.EmployeePayrollDto;
 import com.bridgelabz.employeepayrollapp.entity.EmployeePayrollEntity;
 import org.modelmapper.ModelMapper;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component

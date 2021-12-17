@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class EmployeePayrollDto {
@@ -19,7 +20,8 @@ public class EmployeePayrollDto {
     private String salary;
 
     @NotNull
-    @Pattern(regexp = "^(?:m|M|male|Male|f|F|female|Female|o|O|Other|other)$", message = "Please type gender F - female " +
+    @Pattern(regexp = "^(?:m|M|male|Male|f|F|female|Female|o|O|Other|other)$",
+            message = "Please type gender F - female " +
             "M - male , O - others/Transgender")
     private String gender;
 
@@ -28,22 +30,21 @@ public class EmployeePayrollDto {
     private Date startDate;
 
     @NotNull
-    @Pattern(regexp = "^[a-zA-Z]{2,}$", message = "Department should be start with capital latter " +
-            "& should contain more then 2 character ")
-    private String department;
+//    @Pattern(regexp = "^[a-zA-Z]{2,}$", message = "Department should contain more then 2 character ")
+    private List<String> department;
 
     @NotNull
-    @Pattern(regexp = "^[a-zA-Z]{1,}$", message = "Notes should be start with capital latter " +
-            "& should contain more then 3 character ")
+    @Pattern(regexp = "^[a-zA-Z]{1,}$", message = "Notes should contain more then 3 character ")
     private String notes;
 
     @NotNull
     private String imagePath;
-//    private String name;
-//    private int salary;
-//    private String gender;
-//    private Date startDate;
-//    private String department;
-//    private String notes;
-//    private String imagePath;
+
+    public List<String> getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(List<String> department) {
+        this.department = department;
+    }
 }

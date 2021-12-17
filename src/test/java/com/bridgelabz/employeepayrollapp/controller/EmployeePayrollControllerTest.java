@@ -29,21 +29,21 @@ public class EmployeePayrollControllerTest {
         EmployeePayrollDto employeePayrollDto = new EmployeePayrollDto();
         employeePayrollDto.setName("Vaishnavi");
         employeePayrollDto.setGender("F");
-        employeePayrollDto.setDepartment("It");
+        employeePayrollDto.setDepartment(List.of("Market"));
         employeePayrollDto.setSalary("150000");
         employeePayrollDto.setStartDate(new Date());
-        employeePayrollDto.setNotes("Welcome to It feild");
+        employeePayrollDto.setNotes("Welcome");
         employeePayrollDto.setImagePath("v.jpg");
         employeeList.add(employeePayrollDto);
 
         EmployeePayrollDto employeePayrollDto1 = new EmployeePayrollDto();
         employeePayrollDto1.setName("Siva");
         employeePayrollDto1.setGender("M");
-        employeePayrollDto1.setDepartment("It");
+        employeePayrollDto1.setDepartment(List.of("Finance"));
         employeePayrollDto1.setSalary("15000");
         employeePayrollDto1.setStartDate(new Date());
         employeePayrollDto1.setImagePath("b.jpg");
-        employeePayrollDto1.setNotes("Welcome to it department");
+        employeePayrollDto1.setNotes("Welcome");
         employeeList.add(employeePayrollDto1);
 
         when(employeeService.employeesList()).thenReturn(employeeList);
@@ -64,7 +64,7 @@ public class EmployeePayrollControllerTest {
         EmployeePayrollDto employeeDto = new EmployeePayrollDto();
         employeeDto.setName("Vani");
         employeeDto.setGender("F");
-        employeeDto.setDepartment("It");
+        employeeDto.setDepartment(List.of("Marketing"));
         employeeDto.setSalary("15060");
         employeeDto.setStartDate(new Date());
         employeeDto.setNotes("Welcome");
@@ -81,7 +81,7 @@ public class EmployeePayrollControllerTest {
         EmployeePayrollDto employeeDto = new EmployeePayrollDto();
         employeeDto.setName("veer");
         employeeDto.setGender("M");
-        employeeDto.setDepartment("It");
+        employeeDto.setDepartment(List.of("It"));
         employeeDto.setSalary("20000");
         employeeDto.setStartDate(new Date());
         employeeDto.setNotes("It department joining");

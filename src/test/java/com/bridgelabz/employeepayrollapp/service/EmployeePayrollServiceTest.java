@@ -44,25 +44,25 @@ public class EmployeePayrollServiceTest {
         employee.setEmployeeId(1);
         employee.setName("Shalini");
         employee.setGender("Female");
-        employee.setDepartment("Cse");
+        employee.setDepartment(List.of("Marketing"));
         employeeList.add(employee);
         EmployeePayrollEntity employee2 = new EmployeePayrollEntity();
         employee2.setEmployeeId(2);
         employee2.setName("Suresh");
         employee2.setGender("Male");
-        employee2.setDepartment("It");
+        employee2.setDepartment(List.of("Sales"));
         employeeList.add(employee2);
 
         List<EmployeePayrollDto> employeeResponseList = new ArrayList<>();
         EmployeePayrollDto employeeResponseDto = new EmployeePayrollDto();
         employeeResponseDto.setName("Dipak");
         employeeResponseDto.setGender("Male");
-        employeeResponseDto.setDepartment("Cse");
+        employeeResponseDto.setDepartment(List.of("Marketing"));
         employeeResponseList.add(employeeResponseDto);
         EmployeePayrollDto employeeResponseDto2 = new EmployeePayrollDto();
         employeeResponseDto2.setName("Shankar");
         employeeResponseDto2.setGender("Male");
-        employeeResponseDto2.setDepartment("It");
+        employeeResponseDto2.setDepartment(List.of("Purchasing"));
         employeeResponseList.add(employeeResponseDto2);
 
 
@@ -81,12 +81,12 @@ public class EmployeePayrollServiceTest {
         employeePayrollEntity.setEmployeeId(1);
         employeePayrollEntity.setName("Roopa");
         employeePayrollEntity.setGender("Female");
-        employeePayrollEntity.setDepartment("It");
+        employeePayrollEntity.setDepartment(List.of("It"));
 
         EmployeePayrollDto employeeDto = new EmployeePayrollDto();
         employeeDto.setName("Shakti");
         employeeDto.setGender("Female");
-        employeeDto.setDepartment("It");
+        employeeDto.setDepartment(List.of("Non-It"));
 
         when(modelMapper.map(employeeDto, EmployeePayrollEntity.class)).thenReturn(employeePayrollEntity);
         String actualStringMessage = employeePayrollService.addEmployee(employeeDto);
@@ -103,7 +103,7 @@ public class EmployeePayrollServiceTest {
         EmployeePayrollDto employeeDto = new EmployeePayrollDto();
         employeeDto.setName("Preksha");
         employeeDto.setGender("Female");
-        employeeDto.setDepartment("It");
+        employeeDto.setDepartment(List.of("Marketing"));
 
         EmployeePayrollEntity employeeEntity = new EmployeePayrollEntity();
 
@@ -127,7 +127,7 @@ public class EmployeePayrollServiceTest {
         EmployeePayrollDto employeeDto = new EmployeePayrollDto();
         employeeDto.setName("Gauri");
         employeeDto.setGender("F");
-        employeeDto.setDepartment("It");
+        employeeDto.setDepartment(List.of("It"));
         employeeDto.setSalary("15000");
         employeeDto.setStartDate(new Date());
         employeeDto.setNotes("Welcome to it department");
@@ -137,10 +137,10 @@ public class EmployeePayrollServiceTest {
         employeeEntity.setEmployeeId(1);
         employeeEntity.setName("Pooja");
         employeeEntity.setGender("F");
-        employeeEntity.setDepartment("It");
+        employeeEntity.setDepartment(List.of("Finance"));
         employeeEntity.setSalary("15000");
         employeeEntity.setStartDate(new Date());
-        employeeEntity.setNotes("Welcome to it department");
+        employeeEntity.setNotes("Welcome");
         employeeEntity.setImagePath("a.jpg");
 
         when(employeePayrollRepository.findById(id)).thenReturn(Optional.of(employeeEntity));
@@ -161,7 +161,7 @@ public class EmployeePayrollServiceTest {
         EmployeePayrollDto payrollDto = new EmployeePayrollDto();
         payrollDto.setName("Ashwini");
         payrollDto.setGender("Female");
-        payrollDto.setDepartment("It");
+        payrollDto.setDepartment(List.of("Sales"));
         payrollDto.setSalary("60000");
 
         when(employeePayrollRepository.findById(id)).thenReturn(Optional.empty());
@@ -175,7 +175,8 @@ public class EmployeePayrollServiceTest {
         employee.setEmployeeId(1);
         employee.setName("Mahesh");
         employee.setGender("Male");
-        employee.setDepartment("Non-It");
+        employee.setDepartment(List.of("Non-It"));
+        employee.setSalary("30000");
 
         when(employeePayrollRepository.findById(id)).thenReturn(Optional.of(employee));
         String actualMessage = employeePayrollService.deleteEmployee(id);
@@ -189,10 +190,10 @@ public class EmployeePayrollServiceTest {
         employeeEntity.setEmployeeId(1);
         employeeEntity.setName("Dipali");
         employeeEntity.setGender("F");
-        employeeEntity.setDepartment("It");
+        employeeEntity.setDepartment(List.of("Non-it"));
         employeeEntity.setSalary("25000");
         employeeEntity.setStartDate(new Date());
-        employeeEntity.setNotes("Welcome to it department");
+        employeeEntity.setNotes("Welcome to Non-it department");
         employeeEntity.setImagePath("a.jpg");
         when(employeePayrollRepository.findById(employeeEntity.getEmployeeId())).thenReturn(Optional.empty());
         assertThrows(EmployeeCustomException.class, () -> employeePayrollService.deleteEmployee(employeeEntity.getEmployeeId()));

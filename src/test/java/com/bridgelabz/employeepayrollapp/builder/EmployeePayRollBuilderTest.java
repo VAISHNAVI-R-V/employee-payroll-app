@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -24,7 +25,7 @@ public class EmployeePayRollBuilderTest {
         employeeDto.setName("Shikhaa");
         employeeDto.setGender("Female");
         employeeDto.setSalary("35000");
-        employeeDto.setDepartment("It");
+        employeeDto.setDepartment(List.of("It"));
         employeeDto.setNotes("Welcome to company");
         employeeDto.setImagePath("k.jpg");
         employeeDto.setStartDate(new Date());
