@@ -21,6 +21,7 @@ import static org.junit.Assert.assertEquals;
  */
 @ExtendWith(MockitoExtension.class)
 public class EmployeePayRollBuilderTest {
+
     @InjectMocks
     private EmployeePayRollBuilder employeePayRollBuilder;
     private ModelMapper modelMapper;

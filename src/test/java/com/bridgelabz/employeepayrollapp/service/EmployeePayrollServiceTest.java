@@ -71,18 +71,16 @@ public class EmployeePayrollServiceTest {
         employeeResponseDto2.setDepartment(List.of("Purchasing"));
         employeeResponseList.add(employeeResponseDto2);
 
-
         when(employeePayrollRepository.findAll()).thenReturn(employeeList);
         when(modelMapper.map(employeeList.get(0), EmployeePayrollDto.class)).thenReturn(employeeResponseDto);
         when(modelMapper.map(employeeList.get(1), EmployeePayrollDto.class)).thenReturn(employeeResponseDto2);
-        List<EmployeePayrollDto> actualListOfAtm = employeePayrollService.employeesList();
-        assertEquals(2, actualListOfAtm.size());
-        assertEquals(employeeResponseList, actualListOfAtm);
+        List<EmployeePayrollDto> actualListOfEmployee = employeePayrollService.employeesList();
+        assertEquals(2, actualListOfEmployee.size());
+        assertEquals(employeeResponseList, actualListOfEmployee);
     }
 
     @Test
-    void whenAddEmployeeAtCalled_shouldAddAtmAndGenerateSuccessMessage() {
-
+    void whenAddEmployeeCalled_shouldAddEmployeeGenerateSuccessMessage() {
         EmployeePayrollEntity employeePayrollEntity = new EmployeePayrollEntity();
         employeePayrollEntity.setEmployeeId(1);
         employeePayrollEntity.setName("Roopa");
@@ -98,12 +96,12 @@ public class EmployeePayrollServiceTest {
         String actualStringMessage = employeePayrollService.addEmployee(employeeDto);
         assertEquals("Employee Added Successfully!", actualStringMessage);
         verify(employeePayrollRepository, times(1)).save(employeePayrollEntity);
-
     }
 
     @Test
     void whenEditEmployeeMethodIsCalled_ShouldUpdateEmployeeDetailsAndReturnSuccessMessage() {
-        ArgumentCaptor<EmployeePayrollEntity> argumentCaptor = ArgumentCaptor.forClass(EmployeePayrollEntity.class);
+        ArgumentCaptor<EmployeePayrollEntity> argumentCaptor = ArgumentCaptor
+                .forClass(EmployeePayrollEntity.class);
 
         int id = 1;
         EmployeePayrollDto employeeDto = new EmployeePayrollDto();
@@ -124,7 +122,6 @@ public class EmployeePayrollServiceTest {
 
         assertEquals("Employee Updated Successfully!!", actualSuccessMessage);
         assertEquals(employeeDto.getName(), employeeEntity.getName());
-
     }
 
     @Test

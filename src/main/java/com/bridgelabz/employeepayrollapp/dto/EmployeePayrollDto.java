@@ -35,32 +35,32 @@ public class EmployeePayrollDto {
     @CreationTimestamp
     private Date startDate;
 
-    @NotNull
+    @NotNull(message = "Department should contain more then 2 character ")
 //    @Pattern(regexp = "^[a-zA-Z]{2,}$", message = "Department should contain more then 2 character ")
     private List<String> department;
 
-    @NotNull
-    @Pattern(regexp = "^[a-zA-Z]{1,}$", message = "Notes should contain more then 3 character ")
+    @NotNull(message = "Notes should contain more then 3 character ")
+//    @Pattern(regexp = "^[a-zA-Z]{1,}$", message = "Notes should contain more then 3 character ")
     private String notes;
 
     @NotNull
     private String imagePath;
 
-    /**
-     * @purpose : to create list of departments.
-     *
-     * @return : department data.
-     */
-    public List<String> getDepartment() {
-        return department;
-    }
-
-    /**
-     * @purpose : to set departments for employees.
-     *
-     * @param department : department is used to add multiple list of department data.
-     */
-    public void setDepartment(List<String> department) {
-        this.department = department;
-    }
+//    /**
+//     * @purpose : to create list of departments.
+//     *
+//     * @return : department data.
+//     */
+//    public List<String> getDepartment() {
+//        return department;
+//    }
+//
+//    /**
+//     * @purpose : to set departments for employees.
+//     *
+//     * @param department : department is used to add multiple list of department data.
+//     */
+//    public void setDepartment(List<String> department) {
+//        this.department = department;
+//    }
 }

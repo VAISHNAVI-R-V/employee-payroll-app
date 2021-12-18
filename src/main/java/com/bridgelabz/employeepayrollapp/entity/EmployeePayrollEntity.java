@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Data
 @Entity
-@Table(name = "employee_payroll")
+@Table(name = "employees")
 public class EmployeePayrollEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,29 +25,28 @@ public class EmployeePayrollEntity {
     private String gender;
     private Date startDate;
     @ElementCollection
-    @CollectionTable(name = "employee_department", joinColumns = @JoinColumn(name = "employee_id"))
+    @CollectionTable(name = "employee_department", joinColumns = @JoinColumn(name = "department_id"))
     @Column(name = "department")
     private List<String> department;
     private String notes;
     private String imagePath;
 
-    /**
-     * @purpose : to create list of departments.
-     *
-     * @return : department data.
-     */
-    public List<String> getDepartment() {
-        return department;
-    }
-
-    /**
-     * @purpose : to set departments for employees.
-     *
-     * @param department : department is used to add multiple list of department data.
-     */
-    public void setDepartment(List<String> department) {
-        this.department = department;
-    }
-
+//    /**
+//     * @purpose : to create list of departments.
+//     *
+//     * @return : department data.
+//     */
+//    public List<String> getDepartment() {
+//        return department;
+//    }
+//
+//    /**
+//     * @purpose : to set departments for employees.
+//     *
+//     * @param department : department is used to add multiple list of department data.
+//     */
+//    public void setDepartment(List<String> department) {
+//        this.department = department;
+//    }
 
 }

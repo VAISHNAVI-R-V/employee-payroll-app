@@ -41,7 +41,7 @@ public class SwaggerConfiguration {
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("Employee Payroll Service Application")
-                .description("Sample Documentation Generated Using SWAGGER2 for Employee Payroll Rest API")
+                .description("Employee Payroll Rest API")
                 .termsOfServiceUrl("https://github.com/VAISHNAVI-R-V")
                 .license("License")
                 .licenseUrl("https://github.com/VAISHNAVI-R-V")
